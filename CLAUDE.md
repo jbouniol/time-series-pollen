@@ -22,7 +22,9 @@ Modelling and forecasting daily pollen concentrations across 4 climatically cont
 │   ├── 01_data_collection.ipynb
 │   ├── 02_eda.ipynb
 │   ├── 03_modelling.ipynb
-│   └── 04_forecasting_comparison.ipynb
+│   ├── 04_forecasting_comparison.ipynb
+│   ├── 05_hpi_analysis.ipynb
+│   └── 06_historical_evolution.ipynb
 ├── figures/               # Exported PNG plots
 └── tasks/
     ├── todo.md
@@ -45,10 +47,12 @@ jupyter nbconvert --to notebook --execute Notebooks/01_data_collection.ipynb
 - **Reproducibility:** All random seeds fixed (42). Relative paths only. Each notebook is self-contained.
 - **Code language:** English comments and variable names
 - **Report language:** English
-- **Data granularity:** Hourly pollen → daily mean. Weather already daily.
+- **Data granularity:** Hourly pollen and air quality → daily mean. Weather already daily.
 - **Cities:** Paris (oceanic/continental), Marseille (Mediterranean), Strasbourg (continental), Bordeaux (oceanic)
 - **Pollen species:** birch, alder, grass, olive, mugwort, ragweed
 - **Weather covariates:** temp mean/max/min, precipitation, wind speed max, sunshine duration (h), relative humidity
+- **Air-quality covariates:** ozone, nitrogen_dioxide, pm2_5
+- **HPI notebook:** `Notebooks/05_hpi_analysis.ipynb` builds HPI as `temperature_2m_max_norm * mean(ozone_norm, nitrogen_dioxide_norm)` with MinMax-scaled components, then validates summer seasonality, Paris > Bordeaux, ARIMA+Fourier residuals vs HPI, and ARIMAX HPI lags 0/1/3/7.
 - **Period:** 2022-01-01 to 2024-12-31
 - **Model constraints:** No Prophet. No deep learning unless quantitatively justified. Progressive benchmarking simple → complex.
 - **Math:** Every model choice justified with LaTeX in markdown cells.
@@ -56,6 +60,7 @@ jupyter nbconvert --to notebook --execute Notebooks/01_data_collection.ipynb
 
 ## Data Sources
 - **Pollen:** Open-Meteo Air Quality API — `https://air-quality-api.open-meteo.com/v1/air-quality`
+- **Air quality:** Open-Meteo Air Quality API — `https://air-quality-api.open-meteo.com/v1/air-quality`
 - **Weather:** Open-Meteo Historical Weather API — `https://archive-api.open-meteo.com/v1/archive`
 - Both free
 
