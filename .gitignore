@@ -1,0 +1,7 @@
+Data/
+tasks/
+.claude
+.DS_Store
+sources/open_medic/*
+!sources/open_medic/.gitkeep
+CLAUDE.md

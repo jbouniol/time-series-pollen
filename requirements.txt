@@ -1,0 +1,13 @@
+numpy
+pandas
+matplotlib
+seaborn
+scipy
+statsmodels
+pmdarima
+scikit-learn
+openmeteo-requests
+requests-cache
+retry-requests
+jupyter
+scikit-posthocs>=0.9
